@@ -7,30 +7,32 @@ using namespace std ;
 
 class AnalyseurLex1
 {
-        public: string KEY="KEY";
-        public: string TYPE="TYPE";
-	    public: string ID="ID";
-	    public: string PRTO="PRTO";
-	    public: string PRIF="PRIF";
-	    public: string CRO="CRO";
-        public: string CRF="CRF";
-	    public: string EGA="EGA";
-	    public: string AFC="AFC";
-	    public: string PVR="PVR";
-	    public: string PGE="PGE";
-        public: string PGQ="PGQ";
-	    public: string PPE="PPE";
-	    public: string PPQ="PPQ";
-	    public: string PLUS="PLUS";
-        public: string MOIS="MOIS";
-	    public: string FOIS="FOIS";
-        public: string DIV="DIV";
-        public: string DIF="DIF";
-	    public: string NOT="NOT";
-	    public: string ET="ET";
-	    public: string OU="OU";
-	    public: string DEF="DEF";
-	    public: string VIR="VIR";
+        //Les mots clé
+
+        public: const string KEY="KEY";
+        public: const string TYPE="TYPE";
+	    public: const string ID="ID";
+	    public: const string PRTO="PRTO";
+	    public: const string PRIF="PRIF";
+	    public: const string CRO="CRO";
+        public: const string CRF="CRF";
+	    public: const string EGA="EGA";
+	    public: const string AFC="AFC";
+	    public: const string PVR="PVR";
+	    public: const string PGE="PGE";
+        public: const string PGQ="PGQ";
+	    public: const string PPE="PPE";
+	    public: const string PPQ="PPQ";
+	    public: const string PLUS="PLUS";
+        public: const string MOIS="MOIS";
+	    public: const string FOIS="FOIS";
+        public: const string DIV="DIV";
+        public: const string DIF="DIF";
+	    public: const string NOT="NOT";
+	    public: const string ET="ET";
+	    public: const string OU="OU";
+	    public: const string DEF="DEF";
+	    public: const string VIR="VIR";
 
 
     public: void method()
