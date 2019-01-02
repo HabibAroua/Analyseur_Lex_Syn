@@ -1,5 +1,7 @@
 #ifndef ANALYSEURLEX_H
 #define ANALYSEURLEX_H
+#include<iostream>
+#include<string>
 
 
 class AnalyseurLex
@@ -42,7 +44,6 @@ class AnalyseurLex
         public: static const int ETAT_33=1;
         public: static const int ETAT_34=1;
         public: static const int PUIS=1;
-
 
 };
 

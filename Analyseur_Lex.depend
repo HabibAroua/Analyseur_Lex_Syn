@@ -1,10 +1,22 @@
 # depslib dependency file v1.0
-1546452642 source:/home/habib/Documents/atelier_c_sesame-master/Tree/Analyseur_Lex/main.cpp
+1546463411 source:/home/habib/Documents/atelier_c_sesame-master/Tree/Analyseur_Lex/main.cpp
 	<iostream>
-
-1546453560 source:/home/habib/Documents/atelier_c_sesame-master/Tree/Analyseur_Lex/src/AnalyseurLex.cpp
-	"AnalyseurLex.h"
+	"src/AnalyseurLex.cpp"
 	<stdio.h>
 
-1546453457 /home/habib/Documents/atelier_c_sesame-master/Tree/Analyseur_Lex/include/AnalyseurLex.h
+1546462912 source:/home/habib/Documents/atelier_c_sesame-master/Tree/Analyseur_Lex/src/AnalyseurLex.cpp
+	"AnalyseurLex.h"
+	<iostream>
+	<string.h>
+	<stdio.h>
+
+1546462496 /home/habib/Documents/atelier_c_sesame-master/Tree/Analyseur_Lex/include/AnalyseurLex.h
+	<iostream>
+	<string>
+
+1546463422 /home/habib/Documents/atelier_c_sesame-master/Tree/Analyseur_Lex/src/AnalyseurLex.cpp
+	"AnalyseurLex.h"
+	<iostream>
+	<string.h>
+	<stdio.h>
 
