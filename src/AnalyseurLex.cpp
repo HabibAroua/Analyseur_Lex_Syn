@@ -34,10 +34,14 @@ class AnalyseurLex1
 	    public: const string DEF="DEF";
 	    public: const string VIR="VIR";
 
+	    public : string foo [10] ;
+
+
 
     public: void method()
     {
     printf("%d \n",AnalyseurLex::ETAT_0);
+    foo[0] = "Hello wooo";
     }
 };
 
