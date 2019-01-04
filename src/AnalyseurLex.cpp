@@ -34,14 +34,35 @@ class AnalyseurLex1
 	    public: const string DEF="DEF";
 	    public: const string VIR="VIR";
 
-	    public : string foo [10] ;
+	    public : string tabVar [10] ;
 
 
-
+    public: void initTab()
+    {
+        tabVar[0]  = "program";
+        tabVar[1]  = "var";
+        tabVar[2]  = "integer";
+        tabVar[3]  = "char";
+        tabVar[4]  = "begin";
+        tabVar[5]  = "end";
+        tabVar[6]  = "if";
+        tabVar[7]  = "then";
+        tabVar[8]  = "else";
+        tabVar[9]  = "while";
+        tabVar[10] = "do";
+        tabVar[11] = "read";
+        tabVar[12] = "readln";
+        tabVar[13] = "write";
+        tabVar[14] = "writeln";
+        tabVar[15] = "(";
+        tabVar[16] = ")";
+        tabVar[17] = ":";
+        tabVar[18] = ";";
+    }
     public: void method()
     {
     printf("%d \n",AnalyseurLex::ETAT_0);
-    foo[0] = "Hello wooo";
+
     }
 };
 
