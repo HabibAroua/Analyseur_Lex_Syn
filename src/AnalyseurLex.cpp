@@ -36,6 +36,16 @@ class AnalyseurLex1
 
 	    public : string tabVar [10] ;
 
+	    public :  static int ligne ;
+        public :  int etat= AnalyseurLex::ETAT_0;
+     	public :  int pos   = 0;
+	    public :  char car;
+
+        public : void init()
+        {
+            this->ligne=1;
+        }
+
 
     public: void initTab()
     {

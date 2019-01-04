@@ -45,6 +45,8 @@ class AnalyseurLex
         public: static const int ETAT_34=1;
         public: static const int PUIS=1;
 
+
+
 };
 
 #endif // ANALYSEURLEX_H
