@@ -43,6 +43,12 @@ class AnalyseurLex1
     public : static int offset;
 	public : bool succes ;
 
+	//déclarer lexeme et le source
+	private : string lexeme;
+    private : string source;
+
+
+
     public : void init()
     {
         //initialiser les variables analyse lex
@@ -77,6 +83,14 @@ class AnalyseurLex1
         tabLexeme[18] = ";";
     }
 
+    public : void getCodeSource(string code)
+    {
+        this->source=code;
+    }
+
+    public : string getChar() //equivalent a char
+    {
+         return this->source.substr(offset,1);
+    }
+
 };
-
-
