@@ -2,6 +2,9 @@
 #include <iostream>
 #include<string.h>
 #include<stdio.h>
+#include <regex>
+
+
 
 using namespace std ;
 
@@ -90,7 +93,40 @@ class AnalyseurLex1
 
     public : string getChar() //equivalent a char
     {
-         return this->source.substr(offset,1);
+         return this->source.substr(this->offset,1);
+    }
+
+    public : void goBack()
+    {
+        this->offset--;
+        this->pos--;
+    }
+
+    private : bool isNum(string car)
+    {
+        regex integer("[[:digit:]]+");
+        return regex_match(car,integer); //preg_match('/^([[:alpha:]])+$/', car);
+    }
+
+    private : bool isAlpha(string car)
+    {
+        regex integer("[a-zA-Z]+");
+        return regex_match(car,integer);
+    }
+
+    private : bool isAlphaNum(string car)
+    {
+        regex integer("([a-zA-Z]|[[:digit:]])+");
+        return regex_match(car,integer);
+    }
+
+    private : bool isKeyWord(string word)
+    {
+        for(int i = 0; i <=18; i++)
+        {
+           if(tabLexeme[i]== word) return true;
+        }
+        return false;
     }
 
 };
