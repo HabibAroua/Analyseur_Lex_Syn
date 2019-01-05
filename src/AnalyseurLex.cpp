@@ -37,13 +37,15 @@ class AnalyseurLex1
 	    public : string tabVar [10] ;
 
 	    public :  static int ligne ;
-        public :  int etat= AnalyseurLex::ETAT_0;
-     	public :  int pos   = 0;
+        public :  static int etat;
+     	public :  static int pos;
 	    public :  char car;
 
         public : void init()
         {
             this->ligne=1;
+            this->etat=AnalyseurLex::ETAT_0;
+            this->pos=0;
         }
 
 
@@ -69,11 +71,8 @@ class AnalyseurLex1
         tabVar[17] = ":";
         tabVar[18] = ";";
     }
-    public: void method()
-    {
-    printf("%d \n",AnalyseurLex::ETAT_0);
 
-    }
+
 };
 
 
