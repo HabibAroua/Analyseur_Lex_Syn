@@ -34,15 +34,18 @@ class AnalyseurLex1
 	    public: const string DEF="DEF";
 	    public: const string VIR="VIR";
 
-	    public : string tabVar [10] ;
 
+
+
+        //Global variable pour analyser ce grammaire lexical
 	    public :  static int ligne ;
         public :  static int etat;
      	public :  static int pos;
 	    public :  char car;
-
+        public : string tabLexeme [10] ;
         public : void init()
         {
+            //initialiser les variables analyse lex
             this->ligne=1;
             this->etat=AnalyseurLex::ETAT_0;
             this->pos=0;
@@ -51,25 +54,25 @@ class AnalyseurLex1
 
     public: void initTab()
     {
-        tabVar[0]  = "program";
-        tabVar[1]  = "var";
-        tabVar[2]  = "integer";
-        tabVar[3]  = "char";
-        tabVar[4]  = "begin";
-        tabVar[5]  = "end";
-        tabVar[6]  = "if";
-        tabVar[7]  = "then";
-        tabVar[8]  = "else";
-        tabVar[9]  = "while";
-        tabVar[10] = "do";
-        tabVar[11] = "read";
-        tabVar[12] = "readln";
-        tabVar[13] = "write";
-        tabVar[14] = "writeln";
-        tabVar[15] = "(";
-        tabVar[16] = ")";
-        tabVar[17] = ":";
-        tabVar[18] = ";";
+        tabLexeme[0]  = "program";
+        tabLexeme[1]  = "var";
+        tabLexeme[2]  = "integer";
+        tabLexeme[3]  = "char";
+        tabLexeme[4]  = "begin";
+        tabLexeme[5]  = "end";
+        tabLexeme[6]  = "if";
+        tabLexeme[7]  = "then";
+        tabLexeme[8]  = "else";
+        tabLexeme[9]  = "while";
+        tabLexeme[10] = "do";
+        tabLexeme[11] = "read";
+        tabLexeme[12] = "readln";
+        tabLexeme[13] = "write";
+        tabLexeme[14] = "writeln";
+        tabLexeme[15] = "(";
+        tabLexeme[16] = ")";
+        tabLexeme[17] = ":";
+        tabLexeme[18] = ";";
     }
 
 

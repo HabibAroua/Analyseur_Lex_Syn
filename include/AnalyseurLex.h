@@ -8,6 +8,8 @@ class AnalyseurLex
 {
     public:
         AnalyseurLex();
+        //déclarer les ensemples des états
+
         public: static const int ETAT_0=0;
         public: static const int ETAT_1=1;
         public: static const int ETAT_2=1;
