@@ -43,12 +43,17 @@ class AnalyseurLex1
      	public :  static int pos;
 	    public :  char car;
         public : string tabLexeme [10] ;
+        public : static int offset;
+	    public : bool succes ;
+
         public : void init()
         {
             //initialiser les variables analyse lex
             this->ligne=1;
             this->etat=AnalyseurLex::ETAT_0;
             this->pos=0;
+            this->offset=0;
+            this->succes=false;
         }
 
 
