@@ -16,16 +16,17 @@
 	<iostream>
 	<string>
 
-1546826588 /home/habib/Documents/atelier_c_sesame-master/Tree/Analyseur_Lex/src/AnalyseurLex.cpp
+1546826985 /home/habib/Documents/atelier_c_sesame-master/Tree/Analyseur_Lex/src/AnalyseurLex.cpp
 	"AnalyseurLex.h"
 	<iostream>
 	<string.h>
 	<stdio.h>
 	<regex>
+	"Symbol.cpp"
 
-1546826417 source:/home/habib/Documents/atelier_c_sesame-master/Tree/Analyseur_Lex/src/Symbol.cpp
+1546826743 source:/home/habib/Documents/atelier_c_sesame-master/Tree/Analyseur_Lex/src/Symbol.cpp
 	<iostream>
 
-1546826417 /home/habib/Documents/atelier_c_sesame-master/Tree/Analyseur_Lex/src/Symbol.cpp
+1546826743 /home/habib/Documents/atelier_c_sesame-master/Tree/Analyseur_Lex/src/Symbol.cpp
 	<iostream>
 

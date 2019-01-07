@@ -132,6 +132,10 @@ class AnalyseurLex1
 
     public : void lexSuiv()
     {
+        string str="";
+        while(1)
+        {
 
+        }
     }
 };

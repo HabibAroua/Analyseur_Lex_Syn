@@ -7,6 +7,8 @@ using namespace std;
 
 int main()
 {
+
+
     int tab[10];
     tab[0]=1;
     tab[1]=2;

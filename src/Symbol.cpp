@@ -6,4 +6,8 @@ class Symbol
     public : string value;
     public : string def;
 
+    public : Symbol()
+    {
+    }
+
 };

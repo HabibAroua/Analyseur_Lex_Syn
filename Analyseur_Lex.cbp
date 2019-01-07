@@ -37,6 +37,7 @@
 		<Unit filename="include/AnalyseurLex.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/AnalyseurLex.cpp" />
+		<Unit filename="src/Symbol.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
