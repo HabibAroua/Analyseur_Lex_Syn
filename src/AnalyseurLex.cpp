@@ -255,17 +255,18 @@ class AnalyseurLex1
                                                 this->indiceLexeme++;
                     break;
 
-                    case AnalyseurLex::ETAT_6 : //
+                    case AnalyseurLex::ETAT_10 : this->etat = AnalyseurLex::ETAT_0;
+							                     this->lexeme.term = ")";
+							                     this->lexeme.value = ")";
+							                     this->lexeme.def  = this->PRIF;
+                                                 addListeLexeme(this->indiceLexeme , this->listeLexeme , this->lexeme);
+                                                 this->indiceLexeme++;
                     break;
 
                     case AnalyseurLex::ETAT_7 : //
                     break;
 
                     case AnalyseurLex::ETAT_8 : //
-                    break;
-
-
-                    case AnalyseurLex::ETAT_10 : //
                     break;
 
                     case AnalyseurLex::ETAT_11 : //
