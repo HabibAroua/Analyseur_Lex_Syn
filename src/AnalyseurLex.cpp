@@ -231,10 +231,28 @@ class AnalyseurLex1
                                                 this->indiceLexeme++;
                     break;
 
-                    case AnalyseurLex::ETAT_4 :
+                    case AnalyseurLex::ETAT_4 : if(isNum(car))
+                                                {
+                                                    str =str+ car;
+                                                    car = getChar();
+                                                    goBack();
+							                        this->etat =AnalyseurLex::ETAT_0;
+
+							                        this->lexeme.term = "nb";
+                                                    this->lexeme.value = str;
+							                        this->lexeme.def  = this->TYPE;
+                                                    addListeLexeme(this->indiceLexeme , this->listeLexeme , this->lexeme);
+                                                    this->indiceLexeme++;
+                                                }
+
                     break;
 
-                    case AnalyseurLex::ETAT_5 : //
+                    case AnalyseurLex::ETAT_9 : this->etat = AnalyseurLex::ETAT_0;
+							                    this->lexeme.term = "(";
+							                    this->lexeme.value = "(";
+							                    this->lexeme.def  = this->PRTO;
+                                                addListeLexeme(this->indiceLexeme , this->listeLexeme , this->lexeme);
+                                                this->indiceLexeme++;
                     break;
 
                     case AnalyseurLex::ETAT_6 : //
@@ -246,8 +264,6 @@ class AnalyseurLex1
                     case AnalyseurLex::ETAT_8 : //
                     break;
 
-                    case AnalyseurLex::ETAT_9 : //
-                    break;
 
                     case AnalyseurLex::ETAT_10 : //
                     break;
