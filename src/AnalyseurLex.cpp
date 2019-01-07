@@ -129,6 +129,11 @@ class AnalyseurLex1
         return false;
     }
 
+    public : void lexSuiv()
+    {
+
+    }
+
 
 
 };
