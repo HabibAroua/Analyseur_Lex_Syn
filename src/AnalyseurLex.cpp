@@ -50,6 +50,8 @@ class AnalyseurLex1
 	//déclarer lexeme et le source
 	private : Symbol lexeme;
     private : string source;
+    private : Symbol listeLexeme[];
+    private : static int indiceLexeme;
 
 
 
@@ -61,6 +63,8 @@ class AnalyseurLex1
         this->pos=0;
         this->offset=0;
         this->succes=false;
+        indiceLexeme=0;
+        initTab();
     }
 
 
