@@ -167,15 +167,15 @@ class AnalyseurLex1
                                                 else
                                                 if(this->car == ">") this->etat=AnalyseurLex::ETAT_16; //
                                                 else
-                                                if(this->car == "<") this->etat=AnalyseurLex::ETAT_19;
+                                                if(this->car == "<") this->etat=AnalyseurLex::ETAT_19; //
                                                 else
-                                                if(this->car == "+") this->etat=AnalyseurLex::ETAT_22;
+                                                if(this->car == "+") this->etat=AnalyseurLex::ETAT_23; //
                                                 else
-                                                if(this->car == "-") this->etat=AnalyseurLex::ETAT_23;
+                                                if(this->car == "-") this->etat=AnalyseurLex::ETAT_24;
                                                 else
-                                                if(this->car == "*") this->etat=AnalyseurLex::ETAT_24;
+                                                if(this->car == "*") this->etat=AnalyseurLex::ETAT_25;
                                                 else
-                                                if(this->car == "/") this->etat=AnalyseurLex::ETAT_25;
+                                                if(this->car == "/") this->etat=AnalyseurLex::ETAT_26;
                                                 else
                                                 if(this->car == "&") this->etat=AnalyseurLex::ETAT_27;
                                                 else
@@ -306,12 +306,68 @@ class AnalyseurLex1
                                                  this->indiceLexeme++;
                     break;
 
-                    case AnalyseurLex::ETAT_19 : str = str + this->car;
+                    case AnalyseurLex::ETAT_19 : str = str + this->car; //if supp
 							                     this->car = getChar();
                                                  if(this->car == "=")
 								                     this->etat = AnalyseurLex::ETAT_20;
 							                     else
-                                                     this->etat = AnalyseurLex::ETAT_21;
+                                                     {
+                                                        if(this->car == ">")
+                                                        {
+                                                            this->etat = AnalyseurLex::ETAT_21;
+                                                        }
+                                                        else
+                                                        {
+                                                              this->etat =AnalyseurLex::ETAT_22 ;
+                                                        }
+                                                     }
+                    break;
+
+                    case AnalyseurLex::ETAT_20 : this->etat =AnalyseurLex::ETAT_0;
+							                     str = str + this->car;
+							                     this->lexeme.term = "oprel";
+							                     this->lexeme.value = str;
+                                                 this->lexeme.def  = this->PPE;
+                                                 addListeLexeme(this->indiceLexeme , this->listeLexeme , this->lexeme);
+                                                 this->indiceLexeme++;
+                    break;
+
+                    case AnalyseurLex::ETAT_21 : this->etat =AnalyseurLex::ETAT_0;
+							                     str = str + this->car;
+							                     this->lexeme.term = "oprel";
+							                     this->lexeme.value = str;
+                                                 this->lexeme.def  = this->DEF;
+                                                 addListeLexeme(this->indiceLexeme , this->listeLexeme , this->lexeme);
+                                                 this->indiceLexeme++;
+                    break;
+                    case AnalyseurLex::ETAT_22 : goBack();
+							                     this->etat = AnalyseurLex::ETAT_0;
+                                                 this->lexeme.term = "oprel";
+                                                 this->lexeme.value = str;
+							                     this->lexeme.def  = this->PPQ;
+							                     addListeLexeme(this->indiceLexeme , this->listeLexeme , this->lexeme);
+                                                 this->indiceLexeme++;
+                    break;
+
+                    case AnalyseurLex::ETAT_23 : str = str + this->car;
+							                     this->etat = AnalyseurLex::ETAT_0;
+							                     this->lexeme.term = "opadd";
+							                     this->lexeme.value = str;
+                                                 this->lexeme.def  = this->PLUS;
+                                                 addListeLexeme(this->indiceLexeme , this->listeLexeme , this->lexeme);
+                                                 this->indiceLexeme++;
+                    break;
+
+                    case AnalyseurLex::ETAT_24 :
+                    break;
+
+                    case AnalyseurLex::ETAT_25 :
+                    break;
+
+                    case AnalyseurLex::ETAT_26 :
+                    break;
+
+                    case AnalyseurLex::ETAT_27 :
                     break;
 
             }
