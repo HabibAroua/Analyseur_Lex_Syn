@@ -37,6 +37,7 @@ class AnalyseurLex1
 	public: const string OU="OU";
 	public: const string DEF="DEF";
 	public: const string VIR="VIR";
+	public: const string MODE="MODE";
 
     //Global variable pour analyser ce grammaire lexical
 	public :  static int ligne ;
@@ -177,9 +178,9 @@ class AnalyseurLex1
                                                 else
                                                 if(this->car == "/") this->etat=AnalyseurLex::ETAT_26; //
                                                 else
-                                                if(this->car == "&") this->etat=AnalyseurLex::ETAT_27;
+                                                if(this->car == "&") this->etat=AnalyseurLex::ETAT_27; //
                                                 else
-                                                if(this->car == "|") this->etat=AnalyseurLex::ETAT_31;
+                                                if(this->car == "|") this->etat=AnalyseurLex::ETAT_29;
                                                 else
                                                 if(this->car == ":") this->etat=AnalyseurLex::ETAT_33;
                                                 else
@@ -396,6 +397,25 @@ class AnalyseurLex1
                                                  }
                     break;
 
+                    case AnalyseurLex::ETAT_28 : this->etat = AnalyseurLex::ETAT_0;
+							                     str = str + this->car;
+							                     this->lexeme.term = "opmul";
+							                     this->lexeme.value = str;
+							                     this->lexeme.def  =this->ET;
+							                     addListeLexeme(this->indiceLexeme , this->listeLexeme , this->lexeme);
+                                                 this->indiceLexeme++;
+                    break;
+
+                    case AnalyseurLex::ETAT_29 : str = str + this->car;
+							                     this->car = getChar();
+							                     if(this->car == "|")
+								                     this->etat = AnalyseurLex::ETAT_30;
+                                                 else
+							                     {
+								                      goBack();
+								                      this->etat = AnalyseurLex::PUIS;
+						                         }
+                    break;
             }
         }
     }
