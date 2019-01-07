@@ -5,21 +5,27 @@
 	<stdio.h>
 	<regex>
 
-1546727049 source:/home/habib/Documents/atelier_c_sesame-master/Tree/Analyseur_Lex/src/AnalyseurLex.cpp
+1546825933 source:/home/habib/Documents/atelier_c_sesame-master/Tree/Analyseur_Lex/src/AnalyseurLex.cpp
 	"AnalyseurLex.h"
 	<iostream>
 	<string.h>
 	<stdio.h>
 	<regex>
 
-1546723258 /home/habib/Documents/atelier_c_sesame-master/Tree/Analyseur_Lex/include/AnalyseurLex.h
+1546825685 /home/habib/Documents/atelier_c_sesame-master/Tree/Analyseur_Lex/include/AnalyseurLex.h
 	<iostream>
 	<string>
 
-1546728446 /home/habib/Documents/atelier_c_sesame-master/Tree/Analyseur_Lex/src/AnalyseurLex.cpp
+1546826588 /home/habib/Documents/atelier_c_sesame-master/Tree/Analyseur_Lex/src/AnalyseurLex.cpp
 	"AnalyseurLex.h"
 	<iostream>
 	<string.h>
 	<stdio.h>
 	<regex>
+
+1546826417 source:/home/habib/Documents/atelier_c_sesame-master/Tree/Analyseur_Lex/src/Symbol.cpp
+	<iostream>
+
+1546826417 /home/habib/Documents/atelier_c_sesame-master/Tree/Analyseur_Lex/src/Symbol.cpp
+	<iostream>
 

@@ -7,8 +7,7 @@ class Symbol
     public:
         Symbol();
         virtual ~Symbol();
-    protected:
-    private:
+
 };
 
 #endif // SYMBOL_H

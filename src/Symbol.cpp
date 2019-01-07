@@ -1,11 +1,9 @@
-#include "Symbol.h"
-
-Symbol::Symbol()
+#include<iostream>
+using namespace std;
+class Symbol
 {
-    //ctor
-}
+    public : string term;
+    public : string value;
+    public : string def;
 
-Symbol::~Symbol()
-{
-    //dtor
-}
+};

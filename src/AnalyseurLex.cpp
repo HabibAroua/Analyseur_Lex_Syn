@@ -3,6 +3,7 @@
 #include<string.h>
 #include<stdio.h>
 #include <regex>
+#include "Symbol.cpp";
 
 
 
@@ -47,7 +48,7 @@ class AnalyseurLex1
 	public : bool succes ;
 
 	//déclarer lexeme et le source
-	private : string lexeme;
+	private : Symbol lexeme;
     private : string source;
 
 
