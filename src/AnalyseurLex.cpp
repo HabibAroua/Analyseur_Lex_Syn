@@ -133,7 +133,4 @@ class AnalyseurLex1
     {
 
     }
-
-
-
 };
