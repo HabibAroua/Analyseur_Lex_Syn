@@ -301,11 +301,20 @@ class AnalyseurLex1
 
                                                  this->lexeme.term = "oprel";
 							                     this->lexeme.value = str;
-							                     this->lexeme.def  = this->PGE;
+							                     this->lexeme.def  = this->PGQ;
 							                     addListeLexeme(this->indiceLexeme , this->listeLexeme , this->lexeme);
                                                  this->indiceLexeme++;
                     break;
-              }
+
+                    case AnalyseurLex::ETAT_19 : str = str + this->car;
+							                     this->car = getChar();
+                                                 if(this->car == "=")
+								                     this->etat = AnalyseurLex::ETAT_20;
+							                     else
+                                                     this->etat = AnalyseurLex::ETAT_21;
+                    break;
+
+            }
         }
     }
 };
