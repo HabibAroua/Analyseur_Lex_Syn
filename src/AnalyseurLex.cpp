@@ -119,6 +119,12 @@ class AnalyseurLex1
         return regex_match(car,integer);
     }
 
+    private : bool isID(string car)
+    {
+        regex integer("[a-zA-Z]([a-zA-Z]|[[:digit:]])*");
+        return regex_match(car,integer);
+    }
+
     private : bool isAlphaNum(string car)
     {
         regex integer("([a-zA-Z]|[[:digit:]])+");
@@ -132,6 +138,11 @@ class AnalyseurLex1
            if(tabKeyWord[i]== word) return true;
         }
         return false;
+    }
+
+    public : void addListeLexeme(int indice , Symbol liste[] , Symbol lexeme)
+    {
+        liste[indice]=lexeme;
     }
 
     public : void lexSuiv()
@@ -169,8 +180,6 @@ class AnalyseurLex1
                                                 else
                                                 if(this->car == "/") this->etat=AnalyseurLex::ETAT_25;
                                                 else
-                                                if(this->car == "!") this->etat=AnalyseurLex::ETAT_26;
-                                                else
                                                 if(this->car == "&") this->etat=AnalyseurLex::ETAT_27;
                                                 else
                                                 if(this->car == "|") this->etat=AnalyseurLex::ETAT_31;
@@ -192,13 +201,37 @@ class AnalyseurLex1
                                                       this->etat=AnalyseurLex::ETAT_2;
                                                 }
                     break;
-                    case AnalyseurLex::ETAT_2 : //
+                    case AnalyseurLex::ETAT_2 : this->etat=AnalyseurLex::ETAT_0;
+                                                goBack();
+                                                if(isKeyWord(str))
+                                                {
+                                                    this->lexeme.term=str;
+                                                    this->lexeme.value=str;
+                                                    this->lexeme.def=this->KEY;
+                                                }
+                                                else
+                                                {
+                                                    if(isID(str))
+                                                    {
+                                                         this->lexeme.term="id";
+                                                         this->lexeme.value=str ;
+                                                         this->lexeme.def= this->ID;
+                                                    }
+                                                }
+                                                addListeLexeme(this->indiceLexeme , this->listeLexeme , this->lexeme);
+                                                this->indiceLexeme++;
+
                     break;
 
-                    case AnalyseurLex::ETAT_3 : //
+                    case AnalyseurLex::ETAT_3 : this->etat= AnalyseurLex::ETAT_0;
+                                                this->lexeme.term=";";
+                                                this->lexeme.value=";";
+                                                this->lexeme.def=this->PVR;
+                                                addListeLexeme(this->indiceLexeme , this->listeLexeme , this->lexeme);
+                                                this->indiceLexeme++;
                     break;
 
-                    case AnalyseurLex::ETAT_4 : //
+                    case AnalyseurLex::ETAT_4 :
                     break;
 
                     case AnalyseurLex::ETAT_5 : //

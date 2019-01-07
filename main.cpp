@@ -8,20 +8,21 @@ using namespace std;
 int main()
 {
 
-
+/*
     int tab[10];
     tab[0]=1;
     tab[1]=2;
     int counts = sizeof(tab)/sizeof(tab[0]);
     printf("count est %d \n ",counts);
+    */
 
-/*
+
 string input;
-	regex integer("([a-zA-Z]|[[:digit:]])+");
+	regex integer("[a-zA-Z]([a-zA-Z]|[[:digit:]])*");
  	//As long as the input is correct ask for another number
  	while(true)
  	{
- 		cout<<"Give me an alpha!"<<endl;
+ 		cout<<"Give me an ID!"<<endl;
  		cin>>input;
  		if(!cin) break;
  		//Exit when the user inputs q
@@ -34,7 +35,7 @@ string input;
  			cout<<"Invalid input"<<endl;
  		}
  	}
- 	*/
+
 
 /*
     AnalyseurLex1 a;
