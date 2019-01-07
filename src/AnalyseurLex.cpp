@@ -44,9 +44,9 @@ class AnalyseurLex1
     public :  static int etat;
     public :  static int pos;
 	public :  string car;
-    public : string tabKeyWord[18] ;
-    public : static int offset;
-	public : bool succes ;
+    public :  string tabKeyWord[18] ;
+    public :  static int offset;
+	public :  bool succes ;
 
 	//déclarer lexeme et le source
 	private : Symbol lexeme;
@@ -129,6 +129,11 @@ class AnalyseurLex1
         return regex_match(car,integer);
     }
 
+    private : bool isComment(string car)
+    {
+        return true;
+    }
+
     private : bool isKeyWord(string word)
     {
         for(int i = 0; i <=18; i++)
@@ -180,11 +185,13 @@ class AnalyseurLex1
                                                 else
                                                 if(this->car == "&") this->etat=AnalyseurLex::ETAT_27; //
                                                 else
-                                                if(this->car == "|") this->etat=AnalyseurLex::ETAT_29;
+                                                if(this->car == "|") this->etat=AnalyseurLex::ETAT_29; //
                                                 else
                                                 if(this->car == ":") this->etat=AnalyseurLex::ETAT_33;
                                                 else
                                                 if(this->car == ",") this->etat=AnalyseurLex::ETAT_34;
+                                                else
+                                                if(this->car == "%") this->etat=AnalyseurLex::ETAT_35; //
                                                 else
                                                 this->etat=AnalyseurLex::PUIS;
                     break;
@@ -424,7 +431,32 @@ class AnalyseurLex1
                                                  this->lexeme.def  =  this->OU;
                     break;
 
+                    case AnalyseurLex::ETAT_35 : str = str + this->car;
+							                     this->etat = AnalyseurLex::ETAT_0;
+							                     this->lexeme.term = "opmul";
+							                     this->lexeme.value = str;
+                                                 this->lexeme.def  = this->MODE;
+                                                 addListeLexeme(this->indiceLexeme , this->listeLexeme , this->lexeme);
+                                                 this->indiceLexeme++;
+                    break;
 
+                    case AnalyseurLex::ETAT_33 : this->etat =AnalyseurLex::ETAT_0;
+							                     str = str + this->car;
+                                                 this->lexeme.term = ":";
+                                                 this->lexeme.value = str;
+							                     this->lexeme.def  = this->DEF;
+                    break;
+
+                    case AnalyseurLex::ETAT_34 : this->etat =AnalyseurLex::ETAT_0;
+							                     str = str + this->car;
+                                                 this->lexeme.term = ",";
+                                                 this->lexeme.value = str;
+                                                 this->lexeme.def  = this->VIR;
+                    break;
+
+                    case AnalyseurLex::PUIS : cout << "Erreur Lexical" << endl;
+                    break;
+                    default : this->etat=AnalyseurLex::PUIS;
             }
         }
     }

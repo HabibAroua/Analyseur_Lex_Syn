@@ -45,6 +45,7 @@ class AnalyseurLex
         public: static const int ETAT_32=32;
         public: static const int ETAT_33=33; // :
         public: static const int ETAT_34=34; // ','
+        public: static const int ETAT_35=35; // %
         public: static const int PUIS=100;
 };
 
