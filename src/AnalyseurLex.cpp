@@ -416,6 +416,15 @@ class AnalyseurLex1
 								                      this->etat = AnalyseurLex::PUIS;
 						                         }
                     break;
+
+                    case AnalyseurLex::ETAT_30 : this->etat =AnalyseurLex::ETAT_0;
+                                                 str = str + this->car;
+                                                 this->lexeme.term = "opadd";
+							                     this->lexeme.value = str;
+                                                 this->lexeme.def  =  this->OU;
+                    break;
+
+
             }
         }
     }
