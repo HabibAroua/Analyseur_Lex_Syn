@@ -85,10 +85,7 @@ class AnalyseurLex1
         tabKeyWord[12] = "readln";
         tabKeyWord[13] = "write";
         tabKeyWord[14] = "writeln";
-        tabKeyWord[15] = "(";
-        tabKeyWord[16] = ")";
-        tabKeyWord[17] = ":";
-        tabKeyWord[18] = ";";
+
     }
 
     public : void getCodeSource(string code)
@@ -233,8 +230,8 @@ class AnalyseurLex1
 
                     case AnalyseurLex::ETAT_4 : if(isNum(car))
                                                 {
-                                                    str =str+ car;
-                                                    car = getChar();
+                                                    str =str+ this->car;
+                                                    this->car = getChar();
                                                     goBack();
 							                        this->etat =AnalyseurLex::ETAT_0;
 
@@ -263,22 +260,28 @@ class AnalyseurLex1
                                                  this->indiceLexeme++;
                     break;
 
-                    case AnalyseurLex::ETAT_7 : //
+                    case AnalyseurLex::ETAT_13 : str =str+ this->car;
+							                     this->car = getChar();
+
+							                     if(this->car == "=")
+								                     this->etat = AnalyseurLex::ETAT_14;
+                                                 else
+                                                     this->etat= AnalyseurLex::ETAT_15;
                     break;
 
-                    case AnalyseurLex::ETAT_8 : //
+                    case AnalyseurLex::ETAT_14 : this->etat =AnalyseurLex::ETAT_0;
+						 	                     str =str+ this->car;
+							                     this->lexeme.term = 'oprel';
+							                     this->lexeme.value = str;
+                                                 this->lexeme.def  = this->EGA;
+                                                 addListeLexeme(this->indiceLexeme , this->listeLexeme , this->lexeme);
+                                                 this->indiceLexeme++;
+
                     break;
 
-                    case AnalyseurLex::ETAT_11 : //
-                    break;
 
-                    case AnalyseurLex::ETAT_12 : //
-                    break;
 
-                    case AnalyseurLex::ETAT_13 : //
-                    break;
-
-                    case AnalyseurLex::ETAT_14 : //
+                    case AnalyseurLex::ETAT_15 : //
                     break;
               }
         }
