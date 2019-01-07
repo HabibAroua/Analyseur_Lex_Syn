@@ -42,8 +42,8 @@ class AnalyseurLex1
 	public :  static int ligne ;
     public :  static int etat;
     public :  static int pos;
-	public :  char car;
-    public : string tabLexeme [10] ;
+	public :  string car;
+    public : string tabKeyWord[18] ;
     public : static int offset;
 	public : bool succes ;
 
@@ -53,7 +53,7 @@ class AnalyseurLex1
 
 
 
-    public : void init()
+    private : void init()
     {
         //initialiser les variables analyse lex
         this->ligne=1;
@@ -66,25 +66,25 @@ class AnalyseurLex1
 
     public: void initTab()
     {
-        tabLexeme[0]  = "program";
-        tabLexeme[1]  = "var";
-        tabLexeme[2]  = "integer";
-        tabLexeme[3]  = "char";
-        tabLexeme[4]  = "begin";
-        tabLexeme[5]  = "end";
-        tabLexeme[6]  = "if";
-        tabLexeme[7]  = "then";
-        tabLexeme[8]  = "else";
-        tabLexeme[9]  = "while";
-        tabLexeme[10] = "do";
-        tabLexeme[11] = "read";
-        tabLexeme[12] = "readln";
-        tabLexeme[13] = "write";
-        tabLexeme[14] = "writeln";
-        tabLexeme[15] = "(";
-        tabLexeme[16] = ")";
-        tabLexeme[17] = ":";
-        tabLexeme[18] = ";";
+        tabKeyWord[0]  = "program";
+        tabKeyWord[1]  = "var";
+        tabKeyWord[2]  = "integer";
+        tabKeyWord[3]  = "char";
+        tabKeyWord[4]  = "begin";
+        tabKeyWord[5]  = "end";
+        tabKeyWord[6]  = "if";
+        tabKeyWord[7]  = "then";
+        tabKeyWord[8]  = "else";
+        tabKeyWord[9]  = "while";
+        tabKeyWord[10] = "do";
+        tabKeyWord[11] = "read";
+        tabKeyWord[12] = "readln";
+        tabKeyWord[13] = "write";
+        tabKeyWord[14] = "writeln";
+        tabKeyWord[15] = "(";
+        tabKeyWord[16] = ")";
+        tabKeyWord[17] = ":";
+        tabKeyWord[18] = ";";
     }
 
     public : void getCodeSource(string code)
@@ -125,7 +125,7 @@ class AnalyseurLex1
     {
         for(int i = 0; i <=18; i++)
         {
-           if(tabLexeme[i]== word) return true;
+           if(tabKeyWord[i]== word) return true;
         }
         return false;
     }
@@ -133,9 +133,100 @@ class AnalyseurLex1
     public : void lexSuiv()
     {
         string str="";
-        while(1)
+        init();
+        while(true)
         {
+              switch(this->etat)
+              {
+                    case AnalyseurLex::ETAT_0 : this->car=getChar();
+                                                if(this->car == " " || this->car == "\t");
+                                                else
+                                                if(isAlpha(this->car)) this->etat=AnalyseurLex::ETAT_1;
+                                                else
+                                                if(this->car==";") this->etat=AnalyseurLex::ETAT_3;
+                                                else
+                                                if(isNum(this->car)) this->etat=AnalyseurLex::ETAT_4;
+                                                else
+                                                if(this->car == "(") this->etat=AnalyseurLex::ETAT_9;
+                                                else
+                                                if(this->car == ")")  this->etat=AnalyseurLex::ETAT_10;
+                                                else
+                                                if(this->car == "=") this->etat=AnalyseurLex::ETAT_13;
+                                                else
+                                                if(this->car == ">") this->etat=AnalyseurLex::ETAT_16;
+                                                else
+                                                if(this->car == "<") this->etat=AnalyseurLex::ETAT_19;
+                                                else
+                                                if(this->car == "+") this->etat=AnalyseurLex::ETAT_22;
+                                                else
+                                                if(this->car == "-") this->etat=AnalyseurLex::ETAT_23;
+                                                else
+                                                if(this->car == "*") this->etat=AnalyseurLex::ETAT_24;
+                                                else
+                                                if(this->car == "/") this->etat=AnalyseurLex::ETAT_25;
+                                                else
+                                                if(this->car == "!") this->etat=AnalyseurLex::ETAT_26;
+                                                else
+                                                if(this->car == "&") this->etat=AnalyseurLex::ETAT_27;
+                                                else
+                                                if(this->car == "|") this->etat=AnalyseurLex::ETAT_31;
+                                                else
+                                                if(this->car == ":") this->etat=AnalyseurLex::ETAT_33;
+                                                else
+                                                if(this->car == ",") this->etat=AnalyseurLex::ETAT_34;
+                                                else
+                                                this->etat=AnalyseurLex::PUIS;
+                    break;
 
+                    case AnalyseurLex::ETAT_1 : if(isAlphaNum(this->car))
+                                                {
+                                                     str=str+this->car;
+                                                     this->car = getChar();
+                                                }
+                                                else
+                                                {
+                                                      this->etat=AnalyseurLex::ETAT_2;
+                                                }
+                    break;
+                    case AnalyseurLex::ETAT_2 : //
+                    break;
+
+                    case AnalyseurLex::ETAT_3 : //
+                    break;
+
+                    case AnalyseurLex::ETAT_4 : //
+                    break;
+
+                    case AnalyseurLex::ETAT_5 : //
+                    break;
+
+                    case AnalyseurLex::ETAT_6 : //
+                    break;
+
+                    case AnalyseurLex::ETAT_7 : //
+                    break;
+
+                    case AnalyseurLex::ETAT_8 : //
+                    break;
+
+                    case AnalyseurLex::ETAT_9 : //
+                    break;
+
+                    case AnalyseurLex::ETAT_10 : //
+                    break;
+
+                    case AnalyseurLex::ETAT_11 : //
+                    break;
+
+                    case AnalyseurLex::ETAT_12 : //
+                    break;
+
+                    case AnalyseurLex::ETAT_13 : //
+                    break;
+
+                    case AnalyseurLex::ETAT_14 : //
+                    break;
+              }
         }
     }
 };
