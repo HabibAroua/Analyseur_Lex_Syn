@@ -129,4 +129,6 @@ class AnalyseurLex1
         return false;
     }
 
+
+
 };
