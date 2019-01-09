@@ -5,8 +5,6 @@
 #include <regex>
 #include "Symbol.cpp";
 
-
-
 using namespace std ;
 
 class AnalyseurLex1
@@ -40,19 +38,19 @@ class AnalyseurLex1
 	public: const string MODE="MODE";
 
     //Global variable pour analyser ce grammaire lexical
-	public :  static int ligne ;
-    public :  static int etat;
-    public :  static int pos;
+	public :  int ligne ;
+    public :  int etat;
+    public :  int pos;
 	public :  string car;
     public :  string tabKeyWord[18] ;
-    public :  static int offset;
+    public :  int offset;
 	public :  bool succes ;
 
 	//déclarer lexeme et le source
-	private : Symbol lexeme;
+	public  : Symbol lexeme;
     private : string source;
     private : Symbol listeLexeme[];
-    private : static int indiceLexeme;
+    private : int indiceLexeme;
 
 
 
@@ -64,7 +62,7 @@ class AnalyseurLex1
         this->pos=0;
         this->offset=0;
         this->succes=false;
-        indiceLexeme=0;
+        this->indiceLexeme=0;
         initTab();
     }
 
@@ -96,7 +94,10 @@ class AnalyseurLex1
 
     public : string getChar() //equivalent a char
     {
-         return this->source.substr(this->offset,1);
+         string temp=this->source.substr(this->offset,1);
+         this->offset++;
+         this->pos++;
+         return temp;
     }
 
     public : void goBack()
@@ -152,6 +153,7 @@ class AnalyseurLex1
     {
         string str="";
         init();
+        char x=13;
         while(true)
         {
               switch(this->etat)
@@ -159,7 +161,9 @@ class AnalyseurLex1
                     case AnalyseurLex::ETAT_0 : this->car=getChar();
                                                 if(this->car == " " || this->car == "\t"); //+
                                                 else
-                                                if(isAlpha(this->car)) this->etat=AnalyseurLex::ETAT_1; //
+                                                if(this->car[0] == x){ this->ligne++; this->pos = 0; this->offset++; }
+                                                else
+                                                if(isAlpha(this->car)){ this->etat=AnalyseurLex::ETAT_1; }
                                                 else
                                                 if(this->car==";") this->etat=AnalyseurLex::ETAT_3; //
                                                 else
@@ -199,7 +203,7 @@ class AnalyseurLex1
                     case AnalyseurLex::ETAT_1 : if(isAlphaNum(this->car))
                                                 {
                                                      str=str+this->car;
-                                                     this->car = getChar();
+                                                     car = getChar();
                                                 }
                                                 else
                                                 {
@@ -232,7 +236,9 @@ class AnalyseurLex1
                                                 this->lexeme.term=";";
                                                 this->lexeme.value=";";
                                                 this->lexeme.def=this->PVR;
-                                                addListeLexeme(this->indiceLexeme , this->listeLexeme , this->lexeme);
+                                                //addListeLexeme(this->indiceLexeme , listeLexeme , this->lexeme);
+                                                this->listeLexeme[0]=lexeme;
+                                                printf("l'indice est %d \n",this->indiceLexeme);
                                                 this->indiceLexeme++;
                     break;
 
@@ -454,7 +460,7 @@ class AnalyseurLex1
                                                  this->lexeme.def  = this->VIR;
                     break;
 
-                    case AnalyseurLex::PUIS : cout << "Erreur Lexical" << endl;
+                    case AnalyseurLex::PUIS : // cout << "Erreur Lexical" << endl;
                     break;
                     default : this->etat=AnalyseurLex::PUIS;
             }

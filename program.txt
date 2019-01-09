@@ -1,0 +1,5 @@
+program ex;
+var x:integer;
+begin
+x=2+3
+end.

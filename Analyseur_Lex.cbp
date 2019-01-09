@@ -34,9 +34,13 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/AnalyseSyn.h" />
 		<Unit filename="include/AnalyseurLex.h" />
+		<Unit filename="include/AnalyseurLex2.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/AnalyseSyn.cpp" />
 		<Unit filename="src/AnalyseurLex.cpp" />
+		<Unit filename="src/AnalyseurLex2.cpp" />
 		<Unit filename="src/Symbol.cpp" />
 		<Extensions>
 			<code_completion />

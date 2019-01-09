@@ -1,5 +1,6 @@
 #include <iostream>
 #include "src/AnalyseurLex.cpp";
+#include "src/AnalyseurLex2.cpp";
 #include<stdio.h>
 #include <regex>
 
@@ -7,38 +8,17 @@ using namespace std;
 
 int main()
 {
-
-/*
-    int tab[10];
-    tab[0]=1;
-    tab[1]=2;
-    int counts = sizeof(tab)/sizeof(tab[0]);
-    printf("count est %d \n ",counts);
-    */
-
-
-string input;
-	regex integer("[a-zA-Z]([a-zA-Z]|[[:digit:]])*");
- 	//As long as the input is correct ask for another number
- 	while(true)
- 	{
- 		cout<<"Give me an ID!"<<endl;
- 		cin>>input;
- 		if(!cin) break;
- 		//Exit when the user inputs q
- 		if(input=="q")
- 			break;
- 		if(regex_match(input,integer))
- 		    printf("good \n");
- 		else
- 		{
- 			cout<<"Invalid input"<<endl;
- 		}
- 	}
+    //analyse syntaxique
+     //AnalyseurLex2 a;
+     //a.analyser();
+     AnalyseurLex1 a;
+     a.getCodeSource("program ex; var x:integer; begin end.");
+     a.lexSuiv();
+}
 
 
 /*
     AnalyseurLex1 a;
     return 0;
     */
-}
+
